@@ -1,7 +1,7 @@
 __pycache__
 *.pyc
-/.coverage 
-/.pytest_cache 
+/.coverage
+/.pytest_cache
 
 /envdir/*
 !/envdir/.gitkeep
@@ -9,8 +9,9 @@ __pycache__
 
 /node_modules
 /static/dist/*
-!/static/dist/.gitkeep 
- 
-vagrant_ansible_inventory_default 
-.vagrant 
+!/static/dist/.gitkeep
+
+vagrant_ansible_inventory_default
+.vagrant
 /virtualization/playbook.retry
+/data/*
