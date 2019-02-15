@@ -1,7 +1,7 @@
 import csv
 import os
 
-from app.watt.models import Item
+from app.watt.models import Item, ItemCategory, EnergyType
 
 
 def import_csv(filename):
@@ -10,6 +10,7 @@ def import_csv(filename):
 
     # clear database
     Item.objects.all().delete()
+    ItemCategory.objects.all().delete()
 
     # import
     files_created_count = 0
@@ -17,11 +18,15 @@ def import_csv(filename):
         reader = csv.reader(f)
         next(reader, None)  # skip the headers
         for row in reader:
+            energy_type = string_to_energy_type(row[4])
+            category, _ = ItemCategory.objects.get_or_create(name=row[1])
+
             try:
                 item = Item(
                     name=row[0],
+                    category=category,
                     wh_per_unit=int(row[2]),
-                    energy_type=row[4],
+                    energy_type=energy_type,
                     unit=row[3],
                     default_usage=float(row[5]),
                     source=row[6]
@@ -33,3 +38,7 @@ def import_csv(filename):
                 pass
 
     return files_created_count
+
+
+def string_to_energy_type(string_type):
+    return EnergyType.ELECTRIC
