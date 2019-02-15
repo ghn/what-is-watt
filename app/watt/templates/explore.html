@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+  <ul class="list-inline list-inline--small">
+    {% for item_compute in items_compute %}
+      <li class="box box--squared"><a href="{% url 'explore' item_compute.target_item.id %}">
+        {{ item_compute.target_item.name }}
+        {{ item_compute.value }}
+      </a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

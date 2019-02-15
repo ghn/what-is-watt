@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from app.watt.models import Item
-from app.watt.lib import compute_energy
+from app.watt.lib import compute_energy, ItemCompute
 
 
 def index(request):
@@ -20,4 +20,18 @@ def index(request):
         'item1': item1,
         'item2': item2,
         'value': value
+    })
+
+
+def explore(request, item_id=None):
+    if item_id is not None:
+        base_item = Item.objects.get(id=item_id)
+    else:
+        base_item = Item.objects.first()
+
+    items = Item.objects.all()
+    items_compute = map(lambda item: ItemCompute(base_item, item), items)
+
+    return render(request, 'explore.html', {
+        'items_compute': items_compute
     })

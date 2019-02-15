@@ -12,6 +12,13 @@
   </head>
   <body>
     <div class="container">
+      <div class="nav mrgv-">
+        <ul class="list-inline list-inline--divided">
+          <li><a href="{% url 'root' %}">Home</a></li>
+          <li><a href="{% url 'explore' %}">Explore</a></li>
+        </ul>
+      </div>
+
       <h1>What is Watt?</h1>
       {% block body %}{% endblock %}
     </div>
