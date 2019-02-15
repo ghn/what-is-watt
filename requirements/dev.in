@@ -1,0 +1,15 @@
+-r base.in
+
+django-debug-toolbar
+django-extensions
+flake8-isort
+ipython
+ipdb
+pip-tools
+tox
+werkzeug
+
+# Deployment requirements
+Fabric
+gitric
+isort

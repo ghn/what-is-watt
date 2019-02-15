@@ -20,12 +20,12 @@
     ## Database, choose either mysql or postgres, some subsequent roles will be configured
     ## depending on your choice here.
     # - { role: mysql }
-    # - { role: postgresql }
+    - { role: postgresql }
 
     ## Scripting / Language support
     # - { role: php-fpm }       # PHP using Nginx and PHP-FPM
     # - { role: php-apache }    # PHP using Apache and mod-php
-    # - { role: django }        # Django framework
+    - { role: django }        # Django framework
 
     ## Webserver, choose one of those only if you have not chosen a scripting language
     ## above
@@ -33,7 +33,7 @@
     # - { role: apache }         # Apache for basic HTML website
 
     ## Install Webpack in the box
-    # - { role: webpack }
+    - { role: webpack }
 
     ## Install Solr in the box
     # - { role: solr }
