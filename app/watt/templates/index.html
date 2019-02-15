@@ -3,5 +3,27 @@
 
 {% block body %}
 
+<h2>Compare 2 items</h2>
+
+<form action="{% url 'root' %}" method="post">
+    {% csrf_token %}
+    <select name="item1">
+      {% for item in items %}
+        <option value="{{ item.id }}" {% if item == item1 %}selected="selected" {% endif %}>{{ item.name }}</option>
+      {% endfor %}
+    </select>
+
+    ===
+
+    {{ value }}
+
+    <select name="item2">
+      {% for item in items %}
+        <option value="{{ item.id }}" {% if item == item2 %}selected="selected" {% endif %}>{{ item.name }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="submit" value="Compare">
+</form>
 
 {% endblock %}
