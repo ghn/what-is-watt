@@ -1,8 +1,8 @@
 What is watt
 =======
 
-Import scrirpt
---------------
+Import script
+-------------
 
 `manage.py import data/consumption.csv`
 
