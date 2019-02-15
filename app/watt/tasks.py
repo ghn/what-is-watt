@@ -20,13 +20,16 @@ def import_csv(filename):
             try:
                 item = Item(
                     name=row[0],
-                    power=int(row[2]),
-                    power_type=row[4]
+                    wh_per_unit=int(row[2]),
+                    energy_type=row[4],
+                    unit=row[3],
+                    default_usage=float(row[5]),
+                    source=row[6]
                 )
+
+                item.save()
+                files_created_count += 1
             except:
                 pass
-
-            item.save()
-            files_created_count += 1
 
     return files_created_count
