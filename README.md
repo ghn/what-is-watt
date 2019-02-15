@@ -1,6 +1,11 @@
 What is watt
 =======
 
+Import scrirpt
+--------------
+
+`manage.py import data/consumption.csv`
+
 Installation
 ------------
 
