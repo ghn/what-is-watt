@@ -1,5 +1,5 @@
 {
-  "name": "What is watt",
+  "name": "what_is_watt",
   "version": "1.0.0",
   "author": "Liip AG",
   "license": "private",
@@ -35,5 +35,8 @@
     "> 0.5%",
     "not op_mini all",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "babel-preset-env": "^1.7.0"
+  }
 }
