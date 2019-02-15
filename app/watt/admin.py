@@ -3,6 +3,7 @@ from app.watt.models import Item, ItemCategory
 
 class ItemAdmin(admin.ModelAdmin):
     ordering = ["name"]
+    list_display = ("name", "category", "wh_per_unit", "unit", "energy_type", "default_usage")
 
 class ItemCategoryAdmin(admin.ModelAdmin):
     ordering = ["name"]
