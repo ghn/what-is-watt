@@ -10,7 +10,6 @@ class EnergyType(enum.Enum):
     }
 
 
-
 class ItemCategory(models.Model):
     name = models.CharField(max_length=200, unique=True)
 
