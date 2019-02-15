@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from app.watt.models import Item
+from app.watt.lib import compute_energy
 
 
 def index(request):
@@ -11,8 +12,7 @@ def index(request):
         item1 = Item.objects.get(id=request.POST.get('item1'))
         item2 = Item.objects.get(id=request.POST.get('item2'))
 
-        # compute conversion
-        value = item1.id + item2.id
+        value = compute_energy(item1, item2)
 
     return render(request, 'index.html', {
         'items': Item.objects.all(),
