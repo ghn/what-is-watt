@@ -12,3 +12,4 @@ class ItemCompute(object):
         self.base_item = base_item
         self.target_item = target_item
         self.value = compute_energy(base_item, target_item, base_item_quantity)
+        self.current = base_item == target_item

@@ -4,10 +4,16 @@
 {% block body %}
   <ul class="list-inline list-inline--small">
     {% for item_compute in items_compute %}
-      <li class="box box--squared"><a href="{% url 'explore' item_compute.target_item.id %}">
-        {{ item_compute.target_item.name }}
-        {{ item_compute.value }}
-      </a></li>
+      <li>
+        {% if item_compute.current %}
+          {{ item_compute.target_item.name }}
+        {% else %}
+          <a href="{% url 'explore' item_compute.target_item.id %}">
+            {{ item_compute.target_item.name }}
+            {{ item_compute.value }}
+          </a>
+        {% endif %}
+      </li>
     {% endfor %}
   </ul>
 {% endblock %}
